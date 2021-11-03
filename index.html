@@ -20,105 +20,107 @@
   </head>
   
   <body>
-    <main>
+    <main id="root">
       <div class="banner"></div>
-      <div class="chat_container clearfix">
-
-        <div class="contacts_side float-start">
-          <div class="section_header">
-            <img src="img/avatar_io.jpg" alt="profile picture">
-            <div class="user_info">
-              <h2>Nome Utente</h2>
+      <div class="window">
+        <div class="chat_container clearfix">
+  
+          <div class="contacts_side float-start">
+            <div class="section_header">
+              <img src="img/avatar_io.jpg" alt="profile picture">
+              <div class="user_info">
+                <h2>Nome Utente</h2>
+              </div>
+              <div class="btn_container">
+                <i class="fas fa-circle-notch"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
             </div>
-            <div class="btn_container">
-              <i class="fas fa-circle-notch"></i>
-              <i class="fas fa-comment-alt"></i>
-              <i class="fas fa-ellipsis-v"></i>
+  
+            <div class="notify_me_banner">
+              <i class="fas fa-bell-slash"></i>
+              <div class="notify_me_info">
+                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                <a href="#">Attiva notiiche desktop</a>
+              </div>
+  
             </div>
-          </div>
-
-          <div class="notify_me_banner">
-            <i class="fas fa-bell-slash"></i>
-            <div class="notify_me_info">
-              <h5>Ricevi notifiche di nuovi messaggi</h5>
-              <a href="#">Attiva notiiche desktop</a>
+  
+            <div class="search_contact_container">
+              <div class="input_container">
+                <label for="search"><i class="fas fa-search"></i></label>
+                <input type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
+              </div>
             </div>
-
-          </div>
-
-          <div class="search_contact_container">
-            <div class="input_container">
-              <label for="search"><i class="fas fa-search"></i></label>
-              <input type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
-            </div>
-          </div>
-
-          <div class="contacts_list">
-            <ul>
-
-              <li>
-                <div class="contact_card">
-                  <img src="img/avatar_1.jpg" alt="contact profile picture">
-                  <div class="contact_info">
-                    <h2>Michele</h2>
-                    <p class="contact_last_message">Tutto fatto!...</p>
-                    <div class="date">
-                      10/01/2020 16:15:22
+  
+            <div class="contacts_list">
+              <ul>
+  
+                <li v-for="contact in contactList">
+                  <div class="contact_card">
+                    <img :src="contact.profileImgSrc" alt="contact profile picture">
+                    <div class="contact_info">
+                      <h2> {{contact.name}}  </h2>
+                      <p class="contact_last_message">{{ lastMsg(contact.messages) }}</p>
+                      <div class="date">
+                        10/01/2020 16:15:22
+                      </div>
                     </div>
                   </div>
+                </li>
+              
+              </ul>
+            </div>
+
+          </div>
+  
+          <div class="chat_side float-start">
+            <div class="section_header">
+              <img src="img/avatar_io.jpg" alt="profile picture">
+              <div class="user_info">
+                <h2>Michele</h2>
+                <p>Ultimo accesso oggi alle 10/01/2020 16:15:22</p>
+              </div>
+              <div class="btn_container">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-paperclip"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+  
+            <div class="chat_box">
+              
+              <div class="msg_container msg_sent_position">
+                <div class="msg_box msg_sent_bg">
+                  <p>Hai portato a spasso il cane?</p>
+                  <p class="msg_date">10/01/2020 15:30:55</p>
                 </div>
-              </li>
+              </div>
+              <div class="msg_container msg_sent_position">
+                <div class="msg_box msg_sent_bg">
+                  <p>Hai portato a spasso il cane?</p>
+                  <p class="msg_date">10/01/2020 15:30:55</p>
+                </div>
+              </div>
+              <div class="msg_container msg_received_position">
+                <div class="msg_box msg_received_bg">
+                  <p>Hai portato a spasso il cane?</p>
+                  <p class="msg_date">10/01/2020 15:30:55</p>
+                </div>
+              </div>
             
-            </ul>
+            </div>
+  
+            <div class="chat_new_message">
+              <i class="far fa-smile"></i>
+              <input type="text" name="new_message" id="new_message" placeholder="Scrivi un messaggio">
+              <i class="fas fa-microphone"></i>
+            </div>
+  
           </div>
-
+  
         </div>
-
-        <div class="chat_side float-start">
-          <div class="section_header">
-            <img src="img/avatar_io.jpg" alt="profile picture">
-            <div class="user_info">
-              <h2>Michele</h2>
-              <p>Ultimo accesso oggi alle 10/01/2020 16:15:22</p>
-            </div>
-            <div class="btn_container">
-              <i class="fas fa-search"></i>
-              <i class="fas fa-paperclip"></i>
-              <i class="fas fa-ellipsis-v"></i>
-            </div>
-          </div>
-
-          <div class="chat_box">
-            
-            <div class="msg_container msg_sent_position">
-              <div class="msg_box msg_sent_bg">
-                <p>Hai portato a spasso il cane?</p>
-                <p class="msg_date">10/01/2020 15:30:55</p>
-              </div>
-            </div>
-            <div class="msg_container msg_sent_position">
-              <div class="msg_box msg_sent_bg">
-                <p>Hai portato a spasso il cane?</p>
-                <p class="msg_date">10/01/2020 15:30:55</p>
-              </div>
-            </div>
-            <div class="msg_container msg_received_position">
-              <div class="msg_box msg_received_bg">
-                <p>Hai portato a spasso il cane?</p>
-                <p class="msg_date">10/01/2020 15:30:55</p>
-              </div>
-            </div>
-          
-          </div>
-
-          <div class="chat_new_message">
-            <i class="far fa-smile"></i>
-            <input type="text" name="new_message" id="new_message" placeholder="Scrivi un messaggio">
-            <i class="fas fa-microphone"></i>
-          </div>
-
-        </div>
-
       </div>
     </main>
   </body>
