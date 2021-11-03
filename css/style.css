@@ -1,0 +1,277 @@
+/************************************************************** TAG **************************************************************/
+main {
+  height: 100vh;
+  background-color: #D7DBD7;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+img {
+  max-height: 100%;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+/************************************************************** CLASSI **************************************************************/
+
+.banner {
+  position: absolute;
+  background-color: #0B9688;
+  height: 15vh;
+  width: 100%;
+}
+
+.chat_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 95%;
+  width: 1100px;
+}
+
+.contacts_side,
+.chat_side {
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.contacts_side {
+  width: calc(100% - 720px);
+  border-right: 1px solid lightgray;
+}
+
+.chat_side {
+  width: 720px;
+}
+
+.section_header {
+  height: 70px;
+  width: 100%;
+  background-color: #EAEAEA;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.section_header img {
+  height: 100%;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.section_header .user_info {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+
+.section_header .user_info h2 {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.section_header .user_info p {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #6B7475;
+}
+
+.btn_container i {
+  padding: 9px;
+  font-size: 18px;
+  color: #B1B1B0;
+}
+
+.notify_me_banner {
+  height: 80px;
+  width: 100%;
+  background-color: #8EDAFA;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.notify_me_banner i {
+  background-color: white;
+  font-size: 20px;
+  padding: 15px 13px;
+  border-radius: 50%;
+  color: #8EDAFA;
+}
+
+.notify_me_banner .notify_me_info {
+  padding: 12px;
+}
+
+.notify_me_banner .notify_me_info h5{
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.notify_me_banner .notify_me_info a {
+  color: gray;
+  font-size: 14px;
+}
+
+.search_contact_container {
+  height: 50px;
+  padding: 7px;
+  background-color: #FBFBFA;
+  flex-shrink: 0;
+}
+
+.input_container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #F5F5F6;
+  display: flex;
+  align-items: center;
+}
+
+.search_contact_container input{
+  width: 80%;
+  border: none;
+}
+
+.search_contact_container input::placeholder {
+  color: #757575;
+}
+
+.search_contact_container label{
+  padding: 0 17px;
+  color: #B1B1B0;
+}
+
+.contacts_list {
+  flex-grow: 1;
+  overflow: auto;
+  /* margin-right: 15px; */
+  /* border-right: 1px solid #E7E8E7; */
+  border-top: 1px solid #E7E8E7;
+}
+
+.contacts_list ul li {
+  height: 80px;
+  background-color: #E9EBEA;
+  border-bottom: 1px solid #F4F5F5;
+}
+
+.contact_card {
+  height: 100%;
+  padding: 10px 10px 10px 20px;
+  display: flex;
+}
+
+.contact_card img {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.contact_info {
+  padding-left: 20px;
+  position: relative;
+  flex-grow: 1;
+}
+
+.contact_info h2 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.contact_last_message {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #B6B9BA;
+}
+
+.date {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 14px;
+  color: #B6B9BA;
+}
+
+.chat_box {
+  flex-grow: 1;
+  background-image: url(../img/mine.jpg);
+  padding: 40px 0;
+}
+
+.msg_container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 75px;
+}
+
+.msg_box {
+  max-width: 60%;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 20px 15px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.msg_date {
+  position: absolute;
+  font-size: 12px;
+  bottom: 3px;
+  right: 5px;
+  color: #B6B9BA
+}
+
+.chat_new_message {
+  flex-shrink: 0;
+  height: 70px;
+  background-color: #F3EEEA;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.chat_new_message i {
+  padding: 0 25px;
+  flex-shrink: 0;
+  color: #6A7375;
+  font-size: 25px;
+}
+
+.chat_new_message input {
+  flex: 1;
+  border: none;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.chat_new_message input::placeholder {
+  padding-left: 15px;
+  color: #909090;
+} 
+
+/******************************* UTILITIES *******************************/
+
+.msg_sent_bg {
+  background-color: #D5F8BE;
+}
+.msg_sent_position {
+  align-items: flex-end;
+}
+
+.msg_received_bg {
+  background-color: white;
+}
