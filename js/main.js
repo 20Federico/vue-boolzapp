@@ -89,7 +89,7 @@ window.addEventListener('DOMContentLoaded', function () {
         findContact: "",
         filteredContactList: [],
         activeContact: "",
-        newMsg: ""
+        newMsg: "",
       },
 
       methods: {
@@ -114,6 +114,7 @@ window.addEventListener('DOMContentLoaded', function () {
         openChat(contact) {
           this.activeContact = contact;
         },
+
         onEnterAddNewMsg() {
           if (this.newMsg === "") {
             return;
@@ -135,6 +136,7 @@ window.addEventListener('DOMContentLoaded', function () {
           };
         },
       },
+
       mounted () {
         this.activeContact = this.contactList[0];  
         this.filteredContactList = this.contactList

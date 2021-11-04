@@ -177,7 +177,8 @@ input:focus{
 
 .contacts_list ul li {
   height: 80px;
-  background-color: #E9EBEA;
+  /* background-color: #E9EBEA; */
+  background-color: white;
   border-bottom: 1px solid #F4F5F5;
 }
 
