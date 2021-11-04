@@ -182,6 +182,10 @@ input:focus{
   border-bottom: 1px solid #F4F5F5;
 }
 
+.contacts_list ul li:hover {
+  background-color: #f7faf9;
+}
+
 .contact_card {
   height: 100%;
   padding: 10px 10px 10px 20px;
