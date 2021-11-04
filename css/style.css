@@ -245,6 +245,7 @@ input:focus{
 
 .msg_text {
   padding: 0 15px;
+  word-break: break-all;
 }
 
 .msg_date {
@@ -274,7 +275,7 @@ input:focus{
   border: none;
   border-radius: 5px;
   height: 100%;
-  padding-left: 15px;
+  padding: 0 15px;
 }
 
 .chat_new_message input::placeholder {

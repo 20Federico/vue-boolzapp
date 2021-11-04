@@ -87,24 +87,42 @@ window.addEventListener('DOMContentLoaded', function () {
           },
         ],
         activeContact: "",
+        newMsg: ""
       },
 
       methods: {
         lastMsg (messages) {
           let lastMsg;
-
           if (messages.length === 0 || !messages) {
             lastMsg = '';
           } else {
             lastMsg = messages[messages.length - 1].text;
           }
-          
           return(lastMsg);
-
         },
         openChat(contact) {
           this.activeContact = contact;
-        }
+        },
+        onEnterAddNewMsg() {
+          if (this.newMsg === "") {
+            return;
+          } else {
+            this.activeContact.messages.push({
+              date: '10/01/2020 15:30:55',
+              text: this.newMsg,
+              status: 'sent'
+            })
+            this.newMsg = "";
+
+            setTimeout(() => {
+              this.activeContact.messages.push({
+                date: '10/01/2020 15:30:55',
+                text: 'ok',
+                status: 'received'
+              });
+            }, 2000)
+          };
+        },
       },
       mounted () {
         this.activeContact = this.contactList[0];  
