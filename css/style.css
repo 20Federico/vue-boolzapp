@@ -17,6 +17,11 @@ p {
   margin-bottom: 0;
 }
 
+input:focus{
+  outline: none;
+}
+
+
 /************************************************************** CLASSI **************************************************************/
 
 .banner {
@@ -165,8 +170,8 @@ p {
 .contacts_list {
   flex-grow: 1;
   overflow: auto;
-  /* margin-right: 15px; */
-  /* border-right: 1px solid #E7E8E7; */
+  margin-right: 15px;
+  border-right: 1px solid #E7E8E7;
   border-top: 1px solid #E7E8E7;
 }
 
@@ -200,8 +205,12 @@ p {
 
 .contact_last_message {
   margin-bottom: 0;
+  max-width: 200px;
   font-size: 14px;
   color: #B6B9BA;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .date {
@@ -229,17 +238,19 @@ p {
   max-width: 60%;
   width: fit-content;
   border-radius: 10px;
-  padding: 20px 15px;
-  position: relative;
+  padding: 20px 0 2px 0;
   margin-bottom: 10px;
+  min-width: 150px;
+}
+
+.msg_text {
+  padding: 0 15px;
 }
 
 .msg_date {
-  position: absolute;
   font-size: 12px;
-  bottom: 3px;
-  right: 5px;
-  color: #B6B9BA
+  color: #B6B9BA;
+  padding-right: 3px; 
 }
 
 .chat_new_message {
@@ -263,10 +274,10 @@ p {
   border: none;
   border-radius: 5px;
   height: 100%;
+  padding-left: 15px;
 }
 
 .chat_new_message input::placeholder {
-  padding-left: 15px;
   color: #909090;
 } 
 

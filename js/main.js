@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
           },
           {
             name: 'Luisa',
-            profileImgSrc: 'img/avatar_4.jpg',
+            profileImgSrc: 'img/avatar_io.jpg',
             messages: [
               {
                 date: '10/01/2020 15:30:55',
@@ -85,13 +85,29 @@ window.addEventListener('DOMContentLoaded', function () {
               }
             ],
           },
-        ]
+        ],
+        activeContact: "",
       },
+
       methods: {
         lastMsg (messages) {
-          const lastMsg = messages[messages.length - 1].text
+          let lastMsg;
+
+          if (messages.length === 0 || !messages) {
+            lastMsg = '';
+          } else {
+            lastMsg = messages[messages.length - 1].text;
+          }
+          
           return(lastMsg);
+
         },
+        openChat(contact) {
+          this.activeContact = contact;
+        }
+      },
+      mounted () {
+        this.activeContact = this.contactList[0];  
       },
   });
 })
