@@ -50,14 +50,14 @@
             <div class="search_contact_container">
               <div class="input_container">
                 <label for="search"><i class="fas fa-search"></i></label>
-                <input type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="findContact" @keyup=" showFilteredContacts(findContact) " type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
               </div>
             </div>
   
             <div class="contacts_list">
               <ul>
   
-                <li v-for="contact in contactList" @click=" openChat(contact) ">
+                <li v-for="contact in filteredContactList" @click=" openChat(contact) ">
                   <div class="contact_card">
                     <img :src="contact.profileImgSrc" alt="contact profile picture">
                     <div class="contact_info">

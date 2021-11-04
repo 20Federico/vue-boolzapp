@@ -86,6 +86,8 @@ window.addEventListener('DOMContentLoaded', function () {
             ],
           },
         ],
+        findContact: "",
+        filteredContactList: [],
         activeContact: "",
         newMsg: ""
       },
@@ -100,6 +102,15 @@ window.addEventListener('DOMContentLoaded', function () {
           }
           return(lastMsg);
         },
+
+        showFilteredContacts(findContact) {
+          this.filteredContactList = this.contactList.filter(contact => {
+            if (contact.name.toLowerCase().includes(findContact)) {
+              return true;
+            };
+          });
+        },
+        
         openChat(contact) {
           this.activeContact = contact;
         },
@@ -120,12 +131,13 @@ window.addEventListener('DOMContentLoaded', function () {
                 text: 'ok',
                 status: 'received'
               });
-            }, 2000)
+            }, 1000)
           };
         },
       },
       mounted () {
         this.activeContact = this.contactList[0];  
+        this.filteredContactList = this.contactList
       },
   });
 })
