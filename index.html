@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     
     <script src="js/main.js"></script>
@@ -29,7 +30,7 @@
             <div class="section_header">
               <img src="img/avatar_4.jpg" alt="profile picture">
               <div class="user_info">
-                <h2>Nome Utente</h2>
+                <h2>Federico</h2>
               </div>
               <div class="btn_container">
                 <i class="fas fa-circle-notch"></i>
@@ -91,11 +92,18 @@
   
             <div class="chat_box">
               
-              
               <div class="msg_container" :class=" message.status === 'received' ? 'msg_received_position' : 'msg_sent_position' "  v-for=" message in activeContact['messages'] ">
                 <div class="msg_box" :class=" message.status === 'received' ? 'msg_received_bg' : 'msg_sent_bg' " >
                   <p class="msg_text">{{message.text}}</p>
                   <p class="msg_date text-end">{{message.date}}</p>
+                  <!-- @click="onOpenOptions" -->
+                  <i class="fas fa-chevron-down msg_options_btn" tabindex="0"  ></i>
+                  <div class="msg_option_box">
+                    <ul>
+                      <li>Message info</li>
+                      <li>Delete message</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             

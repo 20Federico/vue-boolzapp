@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 Vue.config.devtools = true;
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -105,9 +105,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         showFilteredContacts(findContact) {
           this.filteredContactList = this.contactList.filter(contact => {
-            if (contact.name.toLowerCase().includes(findContact)) {
-              return true;
-            };
+            return contact.name.toLowerCase().includes(findContact.toLowerCase().trim())
           });
         },
         
@@ -115,6 +113,10 @@ window.addEventListener('DOMContentLoaded', function () {
           this.activeContact = contact;
         },
 
+        // onOpenOptions(event) {
+        //   console.log(event.target.tagName);
+        // },
+        
         onEnterAddNewMsg() {
           if (this.newMsg === "") {
             return;
@@ -125,7 +127,7 @@ window.addEventListener('DOMContentLoaded', function () {
               status: 'sent'
             })
             this.newMsg = "";
-
+            
             setTimeout(() => {
               this.activeContact.messages.push({
                 date: '10/01/2020 15:30:55',
@@ -136,10 +138,10 @@ window.addEventListener('DOMContentLoaded', function () {
           };
         },
       },
-
+      
       mounted () {
         this.activeContact = this.contactList[0];  
         this.filteredContactList = this.contactList
       },
-  });
-})
+    });
+  })
