@@ -101,6 +101,7 @@ window.addEventListener('DOMContentLoaded', function () {
             ],
           },
         ],
+        typing: false,
         toFindContact: "",
         filteredContactList: [],
         activeContact: "",
@@ -138,8 +139,17 @@ window.addEventListener('DOMContentLoaded', function () {
           });
           message.infoOpen = true;
         },
+
+        isTyping() {
+          if (this.newMsg === "") {
+            this.typing = false;
+          } else {
+            this.typing = true;
+          };
+        },
         
         onEnterAddNewMsg() {
+          
           if (this.newMsg === "") {
             return;
           } else {
@@ -150,6 +160,7 @@ window.addEventListener('DOMContentLoaded', function () {
               infoOpen: false 
             })
             this.newMsg = "";
+            this.typing = false;
             
             setTimeout(() => {
               this.activeContact.messages.push({

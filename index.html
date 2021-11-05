@@ -110,8 +110,9 @@
   
             <div class="chat_new_message">
               <i class="far fa-smile"></i>
-              <input v-model="newMsg" @keyup.enter="onEnterAddNewMsg" type="text" name="new_message" id="new_message" placeholder="Scrivi un messaggio">
-              <i class="fas fa-microphone"></i>
+              <input v-model="newMsg" @keyup="isTyping" @keyup.enter="onEnterAddNewMsg" type="text" name="new_message" id="new_message" placeholder="Scrivi un messaggio">
+              <i class="fas fa-microphone" v-if=" typing === false " ></i>
+              <i class="fas fa-paper-plane" v-if=" typing === true " @click="onEnterAddNewMsg" ></i>
             </div>
   
           </div>
