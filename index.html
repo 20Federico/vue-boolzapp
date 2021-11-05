@@ -51,14 +51,14 @@
             <div class="search_contact_container">
               <div class="input_container">
                 <label for="search"><i class="fas fa-search"></i></label>
-                <input v-model="findContact" @keyup=" showFilteredContacts(findContact) " type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="toFindContact" @keyup=" showFilteredContacts(toFindContact) " type="text" name="search" id="search" placeholder="Cerca o inizia una nuova chat">
               </div>
             </div>
   
             <div class="contacts_list">
               <ul>
                 
-                <li v-for="contact in filteredContactList" @click="openChat(contact)" >
+                <li v-for="contact in filteredContactList" @click = "openChat(contact)" :style=" contact['active'] === true ? 'background-color: #e1e1e1;' : '' ">
                   <div class="contact_card">
                     <img :src="contact.profileImgSrc" alt="contact profile picture">
                     <div class="contact_info">
@@ -96,9 +96,8 @@
                 <div class="msg_box" :class=" message.status === 'received' ? 'msg_received_bg' : 'msg_sent_bg' " >
                   <p class="msg_text">{{message.text}}</p>
                   <p class="msg_date text-end">{{message.date}}</p>
-                  <!-- @click="onOpenOptions" -->
-                  <i class="fas fa-chevron-down msg_options_btn" tabindex="0"  ></i>
-                  <div class="msg_option_box">
+                  <i class="fas fa-chevron-down msg_options_btn" @click="onOpenOptions(message)" tabindex="0"  ></i>
+                  <div class="msg_option_box" :style=" message['infoOpen'] ? 'display: block' : '' ">
                     <ul>
                       <li>Message info</li>
                       <li>Delete message</li>
