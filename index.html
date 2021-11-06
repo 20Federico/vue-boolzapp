@@ -76,7 +76,7 @@
 
           </div>
   
-          <div class="chat_side float-start">
+          <div class="chat_side float-start" @click.capture="closeMsgOptions">
             <div class="section_header">
               <img :src=" activeContact.profileImgSrc " alt="profile picture">
               <div class="user_info">
@@ -96,7 +96,7 @@
                 <div class="msg_box" :class=" message.status === 'received' ? 'msg_received_bg' : 'msg_sent_bg' " >
                   <p class="msg_text">{{message.text}}</p>
                   <p class="msg_date text-end">{{message.date}}</p>
-                  <i class="fas fa-chevron-down msg_options_btn" @click="onOpenOptions(message)" tabindex="0"  ></i>
+                  <i class="fas fa-chevron-down msg_options_btn" @click="onOpenOptions(message)" tabindex="0"></i>
                   <div class="msg_option_box" :style=" message['infoOpen'] ? 'display: block' : '' ">
                     <ul>
                       <li>Message info</li>

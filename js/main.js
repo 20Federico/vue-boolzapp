@@ -133,6 +133,12 @@ window.addEventListener('DOMContentLoaded', function () {
           this.activeContact.active = true;
         },
 
+        closeMsgOptions(e) {
+          this.activeContact['messages'].forEach(element => {
+            element.infoOpen = false;
+          });
+        },
+
         onOpenOptions(message) {
           this.activeContact['messages'].forEach(element => {
             element.infoOpen = false;
@@ -161,7 +167,11 @@ window.addEventListener('DOMContentLoaded', function () {
             })
             this.newMsg = "";
             this.typing = false;
-            
+
+            setTimeout(() => {
+              document.querySelector('.chat_box').scrollTop = document.querySelector('.chat_box').scrollHeight;
+            }, 0);
+                        
             setTimeout(() => {
               this.activeContact.messages.push({
                 date: '10/01/2020 15:30:55',
@@ -169,9 +179,15 @@ window.addEventListener('DOMContentLoaded', function () {
                 status: 'received',
                 infoOpen: false 
               });
+              
+              setTimeout(() => {
+                document.querySelector('.chat_box').scrollTop = document.querySelector('.chat_box').scrollHeight;
+              }, 0);
+
             }, 1000)
           };
         },
+
       },
       
       mounted () {
