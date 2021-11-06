@@ -133,7 +133,7 @@ window.addEventListener('DOMContentLoaded', function () {
           this.activeContact.active = true;
         },
 
-        closeMsgOptions(e) {
+        closeMsgOptions() {
           this.activeContact['messages'].forEach(element => {
             element.infoOpen = false;
           });
@@ -187,6 +187,11 @@ window.addEventListener('DOMContentLoaded', function () {
             }, 1000)
           };
         },
+
+        deleteMsg(message) {
+          let toDeleteIndex = this.activeContact.messages.indexOf(message);
+          this.activeContact.messages.splice(toDeleteIndex, 1);
+        }
 
       },
       

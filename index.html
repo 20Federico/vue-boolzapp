@@ -100,7 +100,7 @@
                   <div class="msg_option_box" :style=" message['infoOpen'] ? 'display: block' : '' ">
                     <ul>
                       <li>Message info</li>
-                      <li>Delete message</li>
+                      <li @click="deleteMsg(message)">Delete message</li>
                     </ul>
                   </div>
                 </div>

@@ -288,12 +288,16 @@ input:focus{
 }
 
 .msg_option_box ul {
-  padding: 10px 20px;
+  padding: 10px 0;
 }
 
 .msg_option_box ul li {
   line-height: 40px;
   color:#55595a;
+  padding: 0 20px;
+}
+.msg_option_box ul li:hover {
+  background-color: #dddddd;
 }
 
 .chat_new_message {
