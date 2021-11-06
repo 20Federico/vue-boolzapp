@@ -21,7 +21,6 @@ input:focus{
   outline: none;
 }
 
-
 /************************************************************** CLASSI **************************************************************/
 
 .banner {
@@ -53,7 +52,6 @@ input:focus{
   display: flex;
   flex-direction: column;
 }
-
 
 .contacts_side {
   width: calc(100% - 720px);
@@ -177,7 +175,6 @@ input:focus{
 
 .contacts_list ul li {
   height: 80px;
-  /* background-color: #E9EBEA; */
   background-color: white;
   border-bottom: 1px solid #F4F5F5;
 }
