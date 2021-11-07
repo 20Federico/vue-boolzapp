@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- fonts -->
-
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
@@ -23,7 +22,7 @@
   <body>
     <main id="root">
       <div class="banner"></div>
-      <div class="window">
+      <div class="window" @click.capture="closeMsgOptions">
         <div class="chat_container clearfix">
   
           <div class="contacts_side float-start">
@@ -63,9 +62,9 @@
                     <img :src="contact.profileImgSrc" alt="contact profile picture">
                     <div class="contact_info">
                       <h2> {{contact.name}} </h2>
-                      <p class="contact_last_message">{{ lastMsg(contact.messages) }}</p>
+                      <p class="contact_last_message">{{ lastMsgInfo(contact.messages, 'text') }}</p>
                       <div class="date">
-                        10/01/2020 16:15:22
+                        {{ lastMsgInfo(contact.messages, 'date') }}
                       </div>
                     </div>
                   </div>
@@ -76,12 +75,12 @@
 
           </div>
   
-          <div class="chat_side float-start" @click.capture="closeMsgOptions">
+          <div class="chat_side float-start">
             <div class="section_header">
               <img :src=" activeContact.profileImgSrc " alt="profile picture">
               <div class="user_info">
                 <h2> {{ activeContact.name }} </h2>
-                <p>Ultimo accesso oggi alle 10/01/2020 16:15:22</p>
+                <p>Ultimo accesso: {{ lastContactMsg() }} </p>
               </div>
               <div class="btn_container">
                 <i class="fas fa-search"></i>

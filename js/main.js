@@ -109,14 +109,17 @@ window.addEventListener('DOMContentLoaded', function () {
       },
 
       methods: {
-        lastMsg (messages) {
-          let lastMsg;
+
+        lastMsgInfo (messages, keyToSearch) {
+
+          let lastMsgInfo;
+
           if (messages.length === 0 || !messages) {
-            lastMsg = '';
+            lastMsgInfo = '';
           } else {
-            lastMsg = messages[messages.length - 1].text;
+            lastMsgInfo = messages[messages.length - 1][keyToSearch];
           }
-          return(lastMsg);
+          return(lastMsgInfo);
         },
 
         showFilteredContacts(toFindContact) {
@@ -131,6 +134,13 @@ window.addEventListener('DOMContentLoaded', function () {
             this.contactList[key].active = false
           }
           this.activeContact.active = true;
+        },
+
+        lastContactMsg() {
+          let receivedMsgs = this.activeContact['messages'].filter(message => {
+            return message.status === 'received';
+          });
+          return receivedMsgs[receivedMsgs.length - 1].date;
         },
 
         closeMsgOptions() {
@@ -160,7 +170,7 @@ window.addEventListener('DOMContentLoaded', function () {
             return;
           } else {
             this.activeContact.messages.push({
-              date: '10/01/2020 15:30:55',
+              date: dayjs().format('DD/MM/YYYY H:mm:ss'),
               text: this.newMsg,
               status: 'sent',
               infoOpen: false 
@@ -174,7 +184,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         
             setTimeout(() => {
               this.activeContact.messages.push({
-                date: '10/01/2020 15:30:55',
+                date: dayjs().format('DD/MM/YYYY H:mm:ss'),
                 text: 'ok',
                 status: 'received',
                 infoOpen: false 
@@ -195,10 +205,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
       },
       
-      mounted () {
+      created () {
         this.activeContact = this.contactList[0];  
         this.activeContact.active = true;
-        this.filteredContactList = this.contactList
+        this.filteredContactList = this.contactList;
       },
     });
   })
