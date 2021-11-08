@@ -136,12 +136,15 @@ window.addEventListener('DOMContentLoaded', function () {
           this.activeContact.active = true;
         },
 
-        // lastContactMsg() {
-        //   let receivedMsgs = this.activeContact['messages'].filter(message => {
-        //     return message.status === 'received';
-        //   });
-        //   return receivedMsgs[receivedMsgs.length - 1].date;
-        // },
+        lastContactMsg() {
+          let receivedMsgs = this.activeContact['messages'].filter(message => {
+            return message.status === 'received';
+          });
+          if(receivedMsgs.length < 1){
+            return 
+          }
+          return receivedMsgs[receivedMsgs.length - 1].date;
+        },
 
         closeMsgOptions() {
           this.activeContact['messages'].forEach(element => {
